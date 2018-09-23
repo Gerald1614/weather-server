@@ -1,25 +1,20 @@
 
 const  express = require('express');
-const fs = require('fs'); //require filesystem module
+const path = require("path");
 const port = 3000;
 import {msg} from './weather/index';
 
 let app = express();
-app.get('/', handler);
+let server = require('http').Server(app)
+global.io = require('socket.io')(server);
 
 
-function handler (req, res) { //create server
-  fs.readFile(__dirname + '/public/index.html', function(err, data) { //read file index.html in public folder
-    if (err) {
-      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error
-      return res.end("404 Not Found");
-    } 
-    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML
-    res.write(data); //write data from index.html
-    return res.end();
-  });
-}
+app.use(express.static(path.join(__dirname, '..', '..', 'weather-ui/dist/')))
+app.get('/', function (req,res) {
+  res.sendfile('index.html')
+})
 msg()
-app.listen(port, () => console.log(`Started on port ${port}`));
 
+
+server.listen(port, () => console.log(`Started on port ${port}`));
 
