@@ -14,20 +14,15 @@ export function msg() {
   })
   
   mqttClient.on('message', function(topic, data) {
-
     console.log(topic, JSON.parse(data));
     if(topic === "tempSensor") {
- 
-      if (JSON.parse(data) ===[]) {
+      if (JSON.parse(data).length === 0) {
         return
       } else {
         weatherTable.alertPress = alert(JSON.parse(data));
         weatherTable.PressureMin = PressureMin;
         weatherTable.PressureMax = PressureMax;
         weatherTable.data = JSON.parse(data);
-        console.log(weatherTable.alertPress)
-  
-        console.log(JSON.stringify(weatherTable))
         io.sockets.emit('sensorData', JSON.stringify(weatherTable));
       }
 
@@ -63,14 +58,20 @@ function alert(data) {
     if ((PressureMax.pressure - PressureMin.pressure) >=0.25 && (PressureMax.pressure - PressureMin.pressure) <=0.5 && PressureMax.timing > PressureMin.timing) {
       return 'Venue d\'une haute pression (à long terme)'
     };
+    if ((PressureMax.pressure - PressureMin.pressure) >=0.5 && (PressureMax.pressure - PressureMin.pressure) <=1 && PressureMax.timing > PressureMin.timing) {
+      return 'Venue d\'une haute pression (à moyen terme)'
+    };
     if ((PressureMax.pressure - PressureMin.pressure) >=1 && (PressureMax.pressure - PressureMin.pressure) <=2 && PressureMax.timing > PressureMin.timing) {
       return 'Moyenne pression (à court terme)'
     };
     if ((PressureMax.pressure - PressureMin.pressure) >=0.25 && (PressureMax.pressure - PressureMin.pressure) <=0.5 && PressureMax.timing < PressureMin.timing) {
       return 'Venue d\'une basse pression (à long terme)'
     };
+    if ((PressureMax.pressure - PressureMin.pressure) >=0.5 && (PressureMax.pressure - PressureMin.pressure) <=1 && PressureMax.timing < PressureMin.timing) {
+      return 'Venue d\'une basse pression (à moyen terme)'
+    };
     if ((PressureMax.pressure - PressureMin.pressure) >=1 && (PressureMax.pressure - PressureMin.pressure) <=2 && PressureMax.timing < PressureMin.timing) {
-      return 'Tempête ; en été, orage.'
+      return 'Pluies abondantes, mauvais temps'
     };
     return 'Pas de variation majeure'
  

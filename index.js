@@ -9,7 +9,7 @@ let server = require('http').Server(app)
 global.io = require('socket.io')(server);
 
 
-app.use(express.static(path.join(__dirname, '..', '..', 'weather-ui/dist/')))
+app.use(express.static('public/weather-ui'))
 app.get('/', function (req,res) {
   res.sendfile('index.html')
 })
