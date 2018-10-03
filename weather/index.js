@@ -7,7 +7,8 @@ let weatherTable = {};
 
 const mqttAddress = 'mqtt://192.168.2.25';
 const mqttClient = mqtt.connect(mqttAddress);
-export function msg() {
+
+export default function msg() {
   mqttClient.on('connect', function() {
     mqttClient.subscribe(['tempSensor', 'pageBtn', 'MonitorOn'])
     console.log('sensor succesfully subscribed')
