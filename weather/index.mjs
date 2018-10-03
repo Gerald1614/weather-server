@@ -1,5 +1,7 @@
-var mqtt = require('mqtt')
-var app = require('express')();
+// var mqtt = require('mqtt')
+// var app = require('express')();
+import mqtt from 'mqtt'
+import app from 'express'
 let PressureMinMax=[];
 let PressureMin = 0;
 let PressureMax = 0;
