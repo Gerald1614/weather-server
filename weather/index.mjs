@@ -1,7 +1,7 @@
-// var mqtt = require('mqtt')
-// var app = require('express')();
+
 import mqtt from 'mqtt'
 import app from 'express'
+import fs from 'fs'
 let PressureMinMax=[];
 let PressureMin = 0;
 let PressureMax = 0;
@@ -22,11 +22,16 @@ export default function msg() {
       if (JSON.parse(data).length === 0) {
         return
       } else {
-        weatherTable.alertPress = alert(JSON.parse(data));
-        weatherTable.PressureMin = PressureMin;
-        weatherTable.PressureMax = PressureMax;
-        weatherTable.data = JSON.parse(data);
-        io.sockets.emit('sensorData', JSON.stringify(weatherTable));
+        fs.readdir('/mnt/Pictures', (err, files) => {
+          var randomPic = Math.floor(Math.random() * files.length);
+          weatherTable.pictureDay = files[randomPic];
+          weatherTable.alertPress = alert(JSON.parse(data));
+          weatherTable.PressureMin = PressureMin;
+          weatherTable.PressureMax = PressureMax;
+          weatherTable.data = JSON.parse(data);
+          io.sockets.emit('sensorData', JSON.stringify(weatherTable));
+        })
+        
       }
 
     }

@@ -9,6 +9,7 @@ import io from 'socket.io'
 global.io = io(server)
 
 app.use(express.static('public/weather-ui'))
+app.use('/pictureDay',express.static('/mnt/Pictures'))
 app.get('/', function (req,res) {
   res.sendfile('index.html')
 })
