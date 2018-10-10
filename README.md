@@ -24,6 +24,15 @@ Button (not used)– connected on GPIO 25
 Raspberry pi 3 model B
 USB stick
 
+** running Chromium on raspberry Pi
+I really wanted to re-use an old monitor for this project, bu tit appears that running desktop and chromium on a raspberry pi zero is not the best think I woudl recommand to do. TThe system crashes regularly as memeory is quite linit and swap got full. to address that i had to change size of swap changing the followoign file and restarting the swap.
+
+sudo /etc/dphys-swapfil
+ change this value : CONF_SWAPFILE=100 (i used 400)
+ then
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+
 
 ## Motivation
 
@@ -37,8 +46,9 @@ Thsi project is my first RPI project but I wanted to consolidate in a single pro
 ## Installation
 
 Because I am using ES6 which is not yet supported by standard or LTS version of NODE JS, you need the lastest version of node as well as to launch the app with the <--experimental-modules> attribute. Please note , that the files are not .js file sbut .mjs files. 
-here is teh line to start the app.
-node --experimental-modules index.mjs
+I am also also using environment variables through the module dotenv.
+here is the line to start the app.
+node --experimental-modules -r dotenv/config index.mjs
 In order to make sure the app is always up and running, i am using PM2 and created a weather.json file that includes the script to start the app. 
 so we start the app by running : sudo pm2 start weather.json
 

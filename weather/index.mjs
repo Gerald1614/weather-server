@@ -7,8 +7,7 @@ let PressureMin = 0;
 let PressureMax = 0;
 let weatherTable = {};
 
-const mqttAddress = 'mqtt://192.168.2.25';
-const mqttClient = mqtt.connect(mqttAddress);
+const mqttClient = mqtt.connect(process.env.MQTT_ADDRESS);
 
 export default function msg() {
   mqttClient.on('connect', function() {

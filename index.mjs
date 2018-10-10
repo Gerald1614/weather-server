@@ -1,6 +1,5 @@
-
+import dotenv from 'dotenv'
 import express from 'express'
-const port = 3000;
 import msg from './weather/index.mjs';
 let app = express();
 import http from 'http'
@@ -15,5 +14,5 @@ app.get('/', function (req,res) {
 })
 msg()
 
-server.listen(port, () => console.log(`Started on port ${port}`));
+server.listen(process.env.PORT, () => console.log(`Started on port ${process.env.PORT}`));
 
