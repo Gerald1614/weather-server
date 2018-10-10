@@ -9,7 +9,7 @@ The Project is amix of technologies to provide on a screen information collected
 The idea here was to bring modularity not only in teh way software is built ( so we cna easily add new features) but also in order to be able to bring more devices to cover additional rooms or possibilities. I thus decided to build a back-end with Node JS on a raspberry pi 3 Model B communicating with a raspberry pi zero connected to sensors. I am using MQTT as a MEssage Queue to send data received from sensors to the backend and Socket io to update the infrmation presented to the user Interface. in fact, the raspberry pi zero has two roles has in addition to collect data form sensor and ship them to the back end, it also receive from the backend the presentation layer built on vueJS and served to the browser of the RPi Zero where the screen is also connected.
 
 ## diagram of the solution
-![diagram](/diagram-weather.jpeg)
+![diagram](/diagram-weather.jpg)
 
 ## Components used
 
