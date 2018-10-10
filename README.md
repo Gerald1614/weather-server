@@ -38,6 +38,8 @@ sudo /etc/init.d/dphys-swapfile start
 
 Thsi project is my first RPI project but I wanted to consolidate in a single project information I only found in many disparate sources of information. there is nothign fancy here but it exposes and integrate the result of many interesting concepts and technologies combined
 
+---
+
 #the Backend#
  A very basic express js app built with new modular approach supported only with the latest Node JS version (non LTS). The idea was to build a modular backend that coudl host many other apps in the future as well as leverage ES6. I added  an MQTT client to receive data from the raspberry pi zero and socket.io to communciate with the UI.
  It is to be noticed that this application is also used to serve the UI. So I created a public folder where I push my Vue Js application which is accessed by any browser connected to local network.
@@ -56,10 +58,10 @@ so we start the app by running : sudo pm2 start weather.json
 there are many tutorials on how to run node js on RPI, so I will not do it here but I recommend to use PM2. [PM2]:(http://pm2.keymetrics.io/) is a node.js process manager that bring s a lot of nice features but mainly brings you the capability to restart your app if something goes wrong.
 
 ## References
-*Here are the links to the other applications that are part of the project:*
-  * the UI : [bitbucket](https://bitbucket.org/gegeraptor/weather-ui/src/master/)
-  * the client node js app running on the RPI zero : [bitbucket (https://bitbucket.org/gegeraptor/weather-client/src/master/)
-  * the backend : [bitbucket](https://bitbucket.org/gegeraptor/weather-server/src/master/)
+Here are the links to the other applications that are part of the project.
+* the UI : [bitbucket](https://bitbucket.org/gegeraptor/weather-ui/src/master/)
+* the client node js app running on the RPI zero : [bitbucket (https://bitbucket.org/gegeraptor/weather-client/src/master/)
+* the backend : [bitbucket](https://bitbucket.org/gegeraptor/weather-server/src/master/)
 
 
 ## Contributors
