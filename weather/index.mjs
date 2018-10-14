@@ -30,12 +30,12 @@ export default function msg() {
           weatherTable.data = JSON.parse(data);
           io.sockets.emit('sensorData', JSON.stringify(weatherTable));
         })
-        
       }
-
+    } else if (topic === "pageBtn") {
+        io.sockets.emit('pageBtn', JSON.parse(data));
+        console.log('pageBtn message sent')
     }
   })
-
 } 
 
 function alert(data) {
