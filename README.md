@@ -72,6 +72,7 @@ there are many tutorials on how to run node js on RPI, so I will not do it here 
 
 ## References
 ######Here are the links to the other applications that are part of the project.
+* the UI version 2: [bitbucket](https://bitbucket.org/gegeraptor/weather-ui-v2/src)
 * UI : [bitbucket](https://bitbucket.org/gegeraptor/weather-ui/src/master/)
 * client node js app running on the RPI zero : [bitbucket](https://bitbucket.org/gegeraptor/weather-client/src/master/)
 * backend : [bitbucket](https://bitbucket.org/gegeraptor/weather-server/src/master/)
