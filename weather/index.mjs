@@ -2,14 +2,16 @@
 import mqtt from 'mqtt'
 import app from 'express'
 import fs from 'fs'
+import { sendMessage } from '../index.mjs'
+
 let PressureMinMax=[];
 let PressureMin = 0;
 let PressureMax = 0;
-let weatherTable = {};
+export let weatherTable = {};
 
 const mqttClient = mqtt.connect(process.env.MQTT_ADDRESS);
 
-export default function msg() {
+export function msg() {
   mqttClient.on('connect', function() {
     mqttClient.subscribe(['tempSensor', 'pageBtn', 'MonitorOn'])
     console.log('sensor succesfully subscribed')
@@ -28,7 +30,7 @@ export default function msg() {
           weatherTable.PressureMin = PressureMin;
           weatherTable.PressureMax = PressureMax;
           weatherTable.data = JSON.parse(data);
-          io.sockets.emit('sensorData', JSON.stringify(weatherTable));
+          sendMessage()
         })
       }
     } else if (topic === "pageBtn") {
@@ -81,6 +83,4 @@ function alert(data) {
       return 'Pluies abondantes, mauvais temps'
     };
     return 'Pas de variation majeure'
- 
-
 }
