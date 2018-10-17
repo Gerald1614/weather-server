@@ -45,13 +45,16 @@ function alert(data) {
   data.forEach(function (pressure, index) {
     PressureMinMax.push({'pressure' :pressure.pressure_hPa, 'timing':pressure.timing})
   })
-  if(PressureMax.lenght >5) {
+  if(PressureMinMax.lenght >5) {
     PressureMinMax.pop();
   }
   PressureMinMax.sort((a, b) => b.pressure - a.pressure)
   console.log(PressureMinMax)
   PressureMin= PressureMinMax[PressureMinMax.length-1]
   PressureMax = PressureMinMax[0]
+  if (PressureMin.pressure <= 0) {
+    PressureMin.pressure = PressureMax.pressure -10
+  }
     if ((PressureMax.pressure - PressureMin.pressure) >=2 && PressureMax.timing > PressureMin.timing && PressureMax.pressure <=1015) {
       return 'Meilleure météo à court terme,la dépression s\'éloigne'
     };
