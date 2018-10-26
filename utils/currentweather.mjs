@@ -5,7 +5,6 @@ export default {
      return await fetch(`http://api.openweathermap.org/data/2.5/weather?q=montreal,ca&appid=${process.env.VUE_APP_OWM_KEY}&units=metric`, {
       method: 'get'
     })
-    .then(handleErrors)
     .then(response => {
       handlerErrors(response)
       response.json()
