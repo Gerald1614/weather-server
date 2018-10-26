@@ -7,7 +7,6 @@ export default {
     })
     .then(response => response.json())
     .then(jsonData => {
-      console.log(jsonData)
        return jsonData
     })
     .catch(err => {
