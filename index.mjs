@@ -18,7 +18,7 @@ app.get('/', function (req,res) {
 })
 global.io.on('connection', (socket) => {
   console.log('user connected');
- 
+  sendMessage()
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
