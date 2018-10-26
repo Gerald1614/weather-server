@@ -6,7 +6,10 @@ export default {
       method: 'get'
     })
     .then(handleErrors)
-    .then(response => response.json())
+    .then(response => {
+      handlerErrors(response)
+      response.json()
+    })
     .then(jsonData => {
       console.log(jsonData)
        return jsonData
