@@ -17,7 +17,7 @@ app.get('/', function (req,res) {
   res.sendfile('index.html')
 })
 global.io.on('connection', (socket) => {
-  //sendMessage()
+
   console.log('user connected');
  
   socket.on('disconnect', function(){
@@ -25,6 +25,7 @@ global.io.on('connection', (socket) => {
   });
 });
 msg()
+sendMessage()
 
 export async function sendMessage () {
   global.io.sockets.emit('currentWeather', await getCW);
