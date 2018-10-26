@@ -62,13 +62,13 @@ here is the line to start the app.
 
 > node --experimental-modules -r dotenv/config index.mjs
 
-In order to make sure the app is always up and running, i am using PM2 and created a weather.json file that includes the script to start the app. 
+In order to make sure the app is always up and running, i am using PM2 and created a ecosystem.config.js file that includes the script to connect to th remote server, initiate a git clone then npm install before running the app. 
 so we start the app by running : 
 
-> sudo pm2 start weather.json
+> pm2 deploy production setup
 
 ## deploy on RPI
-there are many tutorials on how to run node js on RPI, so I will not do it here but I recommend to use PM2. [PM2]:(http://pm2.keymetrics.io/) is a node.js process manager that bring s a lot of nice features but mainly brings you the capability to restart your app if something goes wrong.
+there are many tutorials on how to run node js on RPI, so I will not do it here but I recommend to use PM2. [PM2]:(http://pm2.keymetrics.io/) is a node.js process manager that bring s a lot of nice features but mainly brings you the capability to deploy your app to a remote server and restart your app if something goes wrong.
 
 ## References
 ######Here are the links to the other applications that are part of the project.
