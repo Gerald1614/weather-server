@@ -5,10 +5,7 @@ export default {
      return await fetch(`http://api.openweathermap.org/data/2.5/weather?q=montreal,ca&appid=${process.env.VUE_APP_OWM_KEY}&units=metric`, {
       method: 'get'
     })
-    .then(response => {
-      handleErrors(response)
-      response.json()
-    })
+    .then(response => response.json())
     .then(jsonData => {
       console.log(jsonData)
        return jsonData
@@ -18,10 +15,4 @@ export default {
         })
   }
 }
-function handleErrors (response) {
-  console.log(response)
-  if (!response.ok) {
-    throw Error(response.statusText)
-  }
-  return response
-}
+
