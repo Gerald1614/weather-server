@@ -43,7 +43,9 @@ export function msg() {
 function alert(data) {
   PressureMinMax =[]
   data.forEach(function (pressure, index) {
-    PressureMinMax.push({'pressure': pressure.pressure_hPa, 'timing': pressure.timing})
+    if (pressure.pressure_hPa !=0) {
+      PressureMinMax.push({'pressure' :pressure.pressure_hPa, 'timing':pressure.timing})
+    } 
   })
   if(PressureMinMax.lenght >5) {
     PressureMinMax.pop();
