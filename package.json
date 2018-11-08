@@ -5,7 +5,7 @@
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-modules -r dotenv/config index.mjs"
+    "start": "sudo node --experimental-modules -r dotenv/config index.mjs"
   },
   "author": "Gerald Michelant",
   "license": "ISC",
