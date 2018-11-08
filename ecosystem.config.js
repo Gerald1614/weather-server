@@ -15,7 +15,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://GeraldM1614@bitbucket.org/gegeraptor/weather-server.git',
       path : '/home/pi/weather-station',
-      'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js'
+      'post-deploy' : 'sudo npm install && pm2 startOrRestart ecosystem.config.js'
     },
     staging: {
       key: "/Users/gmichelant/.ssh/id_rsa",
@@ -25,7 +25,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://GeraldM1614@bitbucket.org/gegeraptor/weather-server.git',
       path : '/home/pi/weather-station',
-      'post-deploy' : 'pm2 startOrRestart ecosystem.config.js'
+      'post-deploy' : 'sudo pm2 startOrRestart ecosystem.config.js'
     }
   }
 };
