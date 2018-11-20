@@ -14,7 +14,7 @@ let getCW, getFW
 app.use(express.static('public/weather-ui'))
 app.use('/pictureDay',express.static('/mnt/Pictures'))
 app.get('/', function (req,res) {
-  res.sendfile('index.html')
+  res.sendFile('index.html', { root: './public/weather-ui/' })
 })
 global.io.on('connection', (socket) => {
   console.log('user connected');
