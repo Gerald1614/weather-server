@@ -71,11 +71,11 @@ so we start the app by running :
 there are many tutorials on how to run node js on RPI, so I will not do it here but I recommend to use PM2. [PM2]:(http://pm2.keymetrics.io/) is a node.js process manager that bring s a lot of nice features but mainly brings you the capability to deploy your app to a remote server and restart your app if something goes wrong.
 
 ## References
-###Here are the links to the other applications that are part of the project.
-* the UI version 2: [bitbucket](https://bitbucket.org/gegeraptor/weather-ui-v2/src)
-* UI : [git](https://github.com/Gerald1614/weather-ui-old)
-* client node js app running on the RPI zero : [bitbucket](https://bitbucket.org/gegeraptor/weather-client/src/master/)
-* backend : [git](https://github.com/Gerald1614/weather-server)
+Here are the links to the other applications that are part of the project.
+* the UI version 2: [gitHub repo](https://github.com/Gerald1614/weather-ui)
+* UI : [gitHub repo](https://github.com/Gerald1614/weather-ui-old)
+* client node js app running on the RPI zero : [gitHub repo](https://github.com/Gerald1614/weather-client)
+* backend : [gitHub repo](https://github.com/Gerald1614/weather-server)
 
 
 ## Contributors
